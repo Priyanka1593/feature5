@@ -1,6 +1,7 @@
 const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
+const port=process.env.port || 3000;
 var app=express();
 hbs.registerPartials(__dirname + '/views/partials')
 app.use(express.static(__dirname + '/public'));
@@ -26,6 +27,6 @@ app.get('/about',(req,res)=>{
         currentYear:new Date().getFullYear()
     });
 });
-app.listen(3000, ()=>{
-    console.log('Listening to the 3000');
+app.listen(port, ()=>{
+    console.log(`Listening to the ${port}`);
 });
